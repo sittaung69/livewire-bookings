@@ -632,6 +632,9 @@ select {
 .-ml-px {
   margin-left: -1px;
 }
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
 .mb-2 {
   margin-bottom: 0.5rem;
 }
