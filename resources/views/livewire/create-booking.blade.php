@@ -19,5 +19,9 @@
                 @endforeach
             </select>
         </div>
+
+        <div class="mb-6 {{ !$this->selectedService || !$this->selectedEmployee ? 'opacity-25' : '' }}">
+            <label for="" class="inline-block text-gray-700 font-bold mb-2">Select appointment time</label>
+        </div>
     </form>
 </div>
