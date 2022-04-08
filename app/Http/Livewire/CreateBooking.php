@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Employee;
 use App\Models\Service;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class CreateBooking extends Component
@@ -70,6 +71,16 @@ class CreateBooking extends Component
         }
 
         return Employee::find($this->state['employee']);
+    }
+
+    public function getHasDetailsToBookProperty()
+    {
+        return $this->state['service'] && $this->state['employee'] && $this->state['time'];
+    }
+
+    public function getTimeObjectProperty()
+    {
+        return Carbon::createFromTimestamp($this->state['time']);
     }
 
     public function render()
