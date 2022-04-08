@@ -21,7 +21,7 @@
             x-data="{
                 confirmCancellation () {
                     if (window.confirm('Are you sure?')) {
-                        console.log('cancel')
+                        @this.call('cancelBooking')
                     }
                 }
             }"
