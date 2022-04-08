@@ -12,12 +12,22 @@ class CreateBooking extends Component
 
     public $state = [
         'service' => '',
-        'employee' => ''
+        'employee' => '',
+        'time' => ''
     ];
 
     public function mount()
     {
         $this->employees = collect();
+    }
+
+    protected $listeners = [
+        'updated-booking-time' => 'setTime'
+    ];
+
+    public function setTime($time)
+    {
+        $this->state['time'] = $time;
     }
 
     public function updatedStateService($serviceId)
@@ -29,7 +39,19 @@ class CreateBooking extends Component
             return;
         }
 
+        $this->clearTime();
+
         $this->employees = $this->selectedService->employees;
+    }
+
+    public function updatedStateEmployee()
+    {
+        $this->clearTime();
+    }
+
+    public function clearTime()
+    {
+        $this->state['time'] = '';
     }
 
     public function getSelectedServiceProperty()
