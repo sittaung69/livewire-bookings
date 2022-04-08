@@ -9,6 +9,8 @@ use Illuminate\Support\Collection;
 
 class UnavailabilityFilter implements Filter
 {
+    public $unavailabilities;
+    
     public function __construct(Collection $unavailabilities)
     {
         $this->unavailabilities = $unavailabilities;
